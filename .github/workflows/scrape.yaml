@@ -1,9 +1,8 @@
 name: Scrape
-on: [push, pull_request]
-#on:
-#  schedule:
-#    # * is a special character in YAML so you have to quote this string
-#    - cron:  '0 20 * * *'
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 20 * * *'
 
 jobs:
   scrape:
