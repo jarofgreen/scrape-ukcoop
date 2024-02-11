@@ -1,0 +1,36 @@
+title: A copy of data from Co‑operatives UK
+description: A copy of data from Co‑operatives UK. https://www.uk.coop/
+
+types:
+- id: events
+  directory: events
+  list_fields:
+  - title
+  fields:
+    - id: title
+      key: title
+      title: Title
+    - id: description
+      key: description
+      title: description
+    - id: start
+      key: start
+      title: Start
+      type: datetime
+    - id: end
+      key: end
+      title: End
+      type: datetime
+    - id: event_type
+      key: event_type
+      title: Event Type
+    - id: location
+      key: location
+      title: Location
+    - id: price
+      key: price
+      title: Price
+    - id: url
+      key: url
+      title: URL
+      type: url

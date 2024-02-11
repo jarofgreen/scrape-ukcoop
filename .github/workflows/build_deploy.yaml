@@ -1,0 +1,33 @@
+name: Build and Deploy
+on: [push, pull_request]
+
+jobs:
+  build_deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+        architecture: x64
+    - name: Install deps
+      run: pip install -r requirements.txt
+    - name: Build site
+      run: |
+        python -m datatig.cli \
+        build \
+        --staticsiteoutput _site \
+        --staticsiteurl https://jarofgreen.github.io/scrape-ukcoop \
+        .
+    - name: Upload Artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: "./_site"
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
