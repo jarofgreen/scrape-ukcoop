@@ -27,5 +27,5 @@ jobs:
           git config --global user.name 'Scraper'
           git config --global user.email 'scraper@example.com'
           git add events
-          git commit -m "Scrape"
+          git commit -m "Scrape" || true
           git push
